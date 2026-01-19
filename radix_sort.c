@@ -6,59 +6,70 @@
 /*   By: masselgu <masselgu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 11:56:21 by masselgu          #+#    #+#             */
-/*   Updated: 2026/01/18 14:01:24 by masselgu         ###   ########.fr       */
+/*   Updated: 2026/01/19 12:07:22 by masselgu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int get_max_bits(t_stack *stack)
+static int	power_of_two(int n)
 {
-    int max;
-    t_stack *s;
-    int bits;
+	int	result;
 
-    max = 0;
-    s = stack;
-    while (s)
-    {
-        if (s -> main_index > max)
-            max = s -> main_index;
-        s = s -> next;
-    }
-    bits = 0;
-    while ((max >> bits) != 0)
-        bits++;
-    return bits;
+	result = 1;
+	while (n > 0)
+	{
+		result *= 2;
+		n--;
+	}
+	return (result);
 }
 
-void radix_sort(t_stack **stack_a, t_stack **stack_b)
+static int	get_max_bits(t_stack *stack)
 {
-    int i;
-    int j;
-    int size;
-    int max_bits;
+	int		max;
+	int		bits;
+	t_stack	*tmp;
 
-    if (!stack_a || !(*stack_a))
-        return ;
+	max = 0;
+	tmp = stack;
+	while (tmp)
+	{
+		if (tmp->main_index > max)
+			max = tmp->main_index;
+		tmp = tmp->next;
+	}
+	bits = 0;
+	while (power_of_two(bits) <= max)
+		bits++;
+	return (bits);
+}
 
-    size = get_stack_size(*stack_a);
-    max_bits = get_max_bits(*stack_a);
+void	radix_sort(t_stack **stack_a, t_stack **stack_b)
+{
+	int	i;
+	int	j;
+	int	size;
+	int	div;
 
-    i = 0;
-    while (i < max_bits)
-    {
-        j = 0;
-        while (j < size)
-        {
-            if (((*stack_a) -> main_index >> i) & 1)
-                rotate_move(stack_a, NULL, "ra");
-            else
-                swap_move(stack_a, stack_b, "pb");
-            j++;
-        }
-        while (*stack_b)
-            swap_move(stack_a, stack_b, "pa");
-        i++;
-    }
+	if (!stack_a || !*stack_a)
+		return ;
+	size = get_stack_size(*stack_a);
+	i = 0;
+	while (i < get_max_bits(*stack_a))
+	{
+		j = 0;
+		div = power_of_two(i);
+		while (j < size)
+		{
+			if (((*stack_a)->main_index / div) % 2 == 1)
+				ra(stack_a);
+			else
+				pb(stack_a, stack_b);
+			j++;
+		}
+		while (*stack_b)
+			pa(stack_a, stack_b);
+		i++;
+	}
 }

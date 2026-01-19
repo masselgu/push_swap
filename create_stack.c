@@ -6,10 +6,9 @@
 /*   By: masselgu <masselgu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 17:29:37 by masselgu          #+#    #+#             */
-/*   Updated: 2026/01/18 13:46:17 by masselgu         ###   ########.fr       */
+/*   Updated: 2026/01/19 11:57:58 by masselgu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -69,47 +68,42 @@ static void	add_node(t_stack **head, int nbr)
 
 	if (!head)
 		return ;
-
 	node = malloc(sizeof(t_stack));
 	if (!node)
 		return ;
-
 	node -> n = nbr;
 	node -> main_index = 0;
 	node -> next = NULL;
-
 	if (*head == NULL)
 	{
 		*head = node;
 		return ;
 	}
-
 	last = find_last_node(*head);
 	last -> next = node;
 }
 
-
-t_stack *create_stack(int ac, char **av)
+t_stack	*create_stack(int ac, char **av)
 {
-    t_stack *a;
-    char    **tmp;
-    int     i;
+	t_stack	*a;
+	char	**tmp;
+	int		i;
 
-    a = NULL;
-    i = 0;
-    if (ac == 2)
-        tmp = ft_split(av[1], ' ');
-    else
-    {
-        i = 1;
-        tmp = av;
-    }
-    while (tmp[i])
-    {
-        add_node(&a, ft_atoi(tmp[i]));
-        i++;
-    }
-    if (ac == 2)
-        ft_free(tmp);
-    return (a);
+	a = NULL;
+	i = 0;
+	if (ac == 2)
+		tmp = ft_split(av[1], ' ');
+	else
+	{
+		i = 1;
+		tmp = av;
+	}
+	while (tmp[i])
+	{
+		add_node(&a, ft_atoi(tmp[i]));
+		i++;
+	}
+	if (ac == 2)
+		ft_free(tmp);
+	return (a);
 }

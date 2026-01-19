@@ -6,7 +6,7 @@
 /*   By: masselgu <masselgu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 17:30:06 by masselgu          #+#    #+#             */
-/*   Updated: 2026/01/18 13:46:15 by masselgu         ###   ########.fr       */
+/*   Updated: 2026/01/19 12:24:04 by masselgu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	free_stack(t_stack **head)
 		return ;
 	while (*head)
 	{
-		tmp = (*head) -> next;
+		tmp = (*head)-> next;
 		free (*head);
 		*head = tmp;
 	}
@@ -38,32 +38,32 @@ void	free_stack(t_stack **head)
 
 long	ft_atoi(const char *str)
 {
-    long    nbr;
-    int     signe;
-    int     i;
+	long	nbr;
+	int		signe;
+	int		i;
 
-    nbr = 0;
-    signe = 1;
-    i = 0;
-    while (str[i] && ((str[i] >= 9 && str[i] <= 13) || str[i] == ' '))    
-        i++;
-    if (str[i] == '+' || str[i] == '-')
-    {
-        if (str[i] == '-')
-            signe = -1;
-        i++;
-    }
-    while (str[i] >= '0' && str[i] <= '9')
-    {
-        nbr = nbr * 10 + (str[i] - '0');
-        i++;
-    }
-    return (nbr * signe);
+	nbr = 0;
+	signe = 1;
+	i = 0;
+	while (str[i] && ((str[i] >= 9 && str[i] <= 13) || str[i] == ' '))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			signe = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nbr = nbr * 10 + (str[i] - '0');
+		i++;
+	}
+	return (nbr * signe);
 }
 
 void	ft_free(char **arr)
 {
-	int i;
+	int	i;
 
 	if (!arr)
 		return ;
@@ -76,22 +76,8 @@ void	ft_free(char **arr)
 	free(arr);
 }
 
-int	ft_strcmp(char *s1, char *s2)
+void	error_msg(void)
 {
-	if (*s1 == '+')
-	{
-		if (*s2 != '+')
-			s1++;
-	}
-	else
-	{
-		if (*s2 == '+')
-			s2++;
-	}
-	while (*s1 == *s2 && *s1)
-	{
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
+	write(1, "Error\n", 7);
+	exit(1);
 }
