@@ -6,7 +6,7 @@
 /*   By: masselgu <masselgu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 13:27:00 by masselgu          #+#    #+#             */
-/*   Updated: 2026/01/19 12:09:07 by masselgu         ###   ########.fr       */
+/*   Updated: 2026/01/20 11:57:07 by masselgu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	sort_three(t_stack **stack)
 {
 	int	max_id;
 
+	if (is_sorted(*stack))
+		return ;
 	if (!stack || !(*stack) || !(*stack)-> next)
 		return ;
 	max_id = get_max_index(*stack);

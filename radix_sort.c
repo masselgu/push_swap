@@ -6,7 +6,7 @@
 /*   By: masselgu <masselgu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 11:56:21 by masselgu          #+#    #+#             */
-/*   Updated: 2026/01/19 12:07:22 by masselgu         ###   ########.fr       */
+/*   Updated: 2026/01/20 12:40:44 by masselgu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,14 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 	int	j;
 	int	size;
 	int	div;
+	int	max_bits;
 
 	if (!stack_a || !*stack_a)
 		return ;
 	size = get_stack_size(*stack_a);
+	max_bits = get_max_bits(*stack_a);
 	i = 0;
-	while (i < get_max_bits(*stack_a))
+	while (i < max_bits)
 	{
 		j = 0;
 		div = power_of_two(i);

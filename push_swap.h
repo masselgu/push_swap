@@ -6,7 +6,7 @@
 /*   By: masselgu <masselgu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 17:29:57 by masselgu          #+#    #+#             */
-/*   Updated: 2026/01/19 12:24:42 by masselgu         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:00:27 by masselgu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_stack	*create_stack(int ac, char **av);
 void	get_main_index(t_stack *stack_a, int size);
 int		is_sorted(t_stack *stack);
 
+void	sort_five(t_stack **stack_a, t_stack **stack_b);
 void	sort_three(t_stack **stack);
 void	radix_sort(t_stack **stack_a, t_stack **stack_b);
 
@@ -36,12 +37,14 @@ long	ft_atoi(const char *str);
 void	ft_putstr(char *str);
 void	free_stack(t_stack **head);
 
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	error_msg(void);
 char	**ft_split(char const *s, char c);
 void	ft_free(char **arr);
 void	check_input(int ac, char **av);
 
 void	pa(t_stack **stack_a, t_stack **stack_b);
+void	sb(t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
 void	sa(t_stack **stack_a);
 void	ra(t_stack **stack);

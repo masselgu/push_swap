@@ -6,7 +6,7 @@
 /*   By: masselgu <masselgu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 10:21:17 by masselgu          #+#    #+#             */
-/*   Updated: 2026/01/19 12:23:58 by masselgu         ###   ########.fr       */
+/*   Updated: 2026/01/20 11:31:16 by masselgu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,17 @@ static int	check_nbr(char *s)
 	return (1);
 }
 
-void	check_input(int ac, char **av)
+void	check_input(int argc, char **argv)
 {
 	int		i;
 	long	tmp_nbr;
 	char	**tmp_array;
 
 	i = 0;
-	if (ac == 2)
-		tmp_array = ft_split(av[1], ' ');
+	if (argc == 2)
+		tmp_array = ft_split(argv[1], ' ');
 	else
-		tmp_array = av + 1;
+		tmp_array = argv + 1;
 	while (tmp_array[i])
 	{
 		if (!check_nbr(tmp_array[i]))
@@ -89,6 +89,6 @@ void	check_input(int ac, char **av)
 	}
 	if (!check_duplicate(tmp_array))
 		error_msg();
-	if (ac == 2)
+	if (argc == 2)
 		ft_free(tmp_array);
 }
