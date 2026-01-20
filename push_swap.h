@@ -6,7 +6,7 @@
 /*   By: masselgu <masselgu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 17:29:57 by masselgu          #+#    #+#             */
-/*   Updated: 2026/01/19 16:00:27 by masselgu         ###   ########.fr       */
+/*   Updated: 2026/01/20 13:20:15 by masselgu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_stack
 }					t_stack;
 
 int		get_stack_size(t_stack *stack);
-t_stack	*create_stack(int ac, char **av);
+t_stack	*create_stack(int argc, char **argv);
 void	get_main_index(t_stack *stack_a, int size);
 int		is_sorted(t_stack *stack);
 
@@ -41,7 +41,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	error_msg(void);
 char	**ft_split(char const *s, char c);
 void	ft_free(char **arr);
-void	check_input(int ac, char **av);
+void	check_input(int argc, char **argv);
 
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	sb(t_stack **stack_b);
