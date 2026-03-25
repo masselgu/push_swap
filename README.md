@@ -1,6 +1,6 @@
 # Push_swap
 
-> Sorting with Bitwise Radix Sort - Because sorting with two stacks is an art.
+> Sorting with Bitwise Radix Sort.
 
 [![norminette](https://img.shields.io/badge/norminette-OK-brightgreen)](https://github.com/42School/norminette)
 [![42](https://img.shields.io/badge/42-cursus-blue)](https://42.fr)
