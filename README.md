@@ -20,7 +20,6 @@ The **push_swap** project is an algorithmic challenge: sort data on a stack with
 - Minimize the number of operations (instructions)
 - Handle edge cases (duplicates, negative numbers, already sorted)
 - Understand time complexity and algorithm efficiency
-- **Bonus**: Create a checker program to validate sorting
 
 ---
 
@@ -99,7 +98,7 @@ make re
 # 500 random numbers
 ./push_swap $(seq 1 500 | shuf) | wc -l
 
-
+```
 ## 📥 Getting Started
 
 ### 🔧 Clone the Repository
@@ -115,3 +114,4 @@ cd push_swap
 
 # Compile the project
 make
+```
