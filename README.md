@@ -2,7 +2,7 @@
 
 > Sorting with Bitwise Radix Sort - Because sorting with two stacks is an art.
 
-[![norminette](https://img.shields.io/badge/norminette-OK25-brightgreen)](https://github.com/42School/norminette)
+[![norminette](https://img.shields.io/badge/norminette-OK-brightgreen)](https://github.com/42School/norminette)
 [![42](https://img.shields.io/badge/42-cursus-blue)](https://42.fr)
 [![Sorting Algorithm](https://img.shields.io/badge/Algorithm-Radix%20Sort-orange)](https://en.wikipedia.org/wiki/Radix_sort)
 
